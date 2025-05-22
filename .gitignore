@@ -1,0 +1,48 @@
+# Configuración de Visual Studio
+.vs/
+*.user
+*.suo
+
+# Archivos de compilación
+bin/
+obj/
+Debug/
+*.dll
+*.pdb
+*.exe
+*.out
+*.log
+*.cache
+*.pid
+
+# Configuración y dependencias
+node_modules/
+packages/
+.nuget/
+
+# Archivos de bases de datos (no subir datos sensibles)
+*.mdf
+*.ldb
+*.sqlite
+*.bak
+
+# Archivos de entorno y seguridad (mantener credenciales privadas)
+.env
+.env.local
+appsettings.json
+
+# Ignorar archivos temporales y del sistema
+Thumbs.db
+.DS_Store
+.idea/
+*.vsconfig
+
+# ❗ SE INCLUYE DOCUMENTACIÓN ❗
+# Ignorar archivos generados por PlantUML (excepto UML importantes)
+!doc/UML/*.png
+!doc/UML/*.svg
+# No excluir PDFs ni archivos de requerimientos
+!doc/PDF/
+!doc/UML/
+!doc/Requerimientos/
+!doc/QA/

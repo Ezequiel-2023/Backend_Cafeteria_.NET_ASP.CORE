@@ -1,0 +1,64 @@
+@startuml diagrama ER
+
+entity Usuario {
+  +id : int
+  nombre : string
+  apellido : string
+  correo : string
+  contraseña : string
+  rol_id : int
+}
+
+entity Rol {
+  +id : int
+  nombre : string
+}
+
+entity Categoria {
+  +id : int
+  nombre : string
+  descripcion : string
+  imagen : string
+}
+
+entity Producto {
+  +id : int
+  nombre : string
+  precio : decimal
+  descripcion : string
+  imagen : string
+  cantidad : int
+  categoria_id : int
+}
+
+entity Orden {
+  +id : int
+  descripcion : string
+  total : decimal
+  nombre_cliente : string
+  fecha : datetime
+  usuario_id : int
+  venta_id : int
+}
+
+entity Venta {
+  +id : int
+  descripcion : string
+  fecha : datetime
+}
+
+entity OrdenProducto {
+  orden_id : int
+  producto_id : int
+  cantidad : int
+}
+
+' Relaciones
+Usuario }o--|| Rol  
+Producto }o--|| Categoria 
+Orden }o--|| Usuario 
+Orden }o--|| Venta 
+Venta ||--o{ Orden 
+OrdenProducto }o--|| Orden
+OrdenProducto }o--|| Producto
+@enduml
