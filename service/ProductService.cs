@@ -16,13 +16,13 @@ namespace Inventory.Service
         // Obtener todos los productos
         public async Task<IEnumerable<Product>> ObtenerTodos()
         {
-            return await _context.TodoItems.ToListAsync();
+            return await _context.Product.ToListAsync();
         }
 
         // Obtener un producto por ID
         public async Task<Product?> ObtenerPorId(int id)
         {
-            return await _context.TodoItems.FindAsync(id);
+            return await _context.Product.FindAsync(id);
         }
 
         // Agregar un nuevo producto usando ProductDTO
@@ -38,7 +38,7 @@ namespace Inventory.Service
                 UpdatedAt = DateTime.UtcNow
             };
 
-            _context.TodoItems.Add(product);
+            _context.Product.Add(product);
             await _context.SaveChangesAsync();
             return product;
         }
@@ -65,7 +65,7 @@ namespace Inventory.Service
             var product = await ObtenerPorId(id);
             if (product == null) return false;
 
-            _context.TodoItems.Remove(product);
+            _context.Product.Remove(product);
             await _context.SaveChangesAsync();
             return true;
         }
