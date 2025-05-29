@@ -1,18 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Inventory.Service;
+using Inventory.DTO;
 
 namespace Inventory.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductController(ProductService productService) : ControllerBase
     {
-        private readonly ProductService _productService;
-
-        public ProductController(ProductService productService)
-        {
-            _productService = productService;
-        }
+        private readonly ProductService _productService = productService;
 
         // GET: api/Product
         [HttpGet]

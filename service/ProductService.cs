@@ -1,4 +1,5 @@
 using Inventory.Config;
+using Inventory.DTO;
 using Inventory.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,7 +36,8 @@ namespace Inventory.Service
                 Price = productDto.Price,
                 Quantity = productDto.Quantity,
                 CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                UpdatedAt = DateTime.UtcNow,
+                Imagen = productDto.Imagen
             };
 
             _context.Product.Add(product);
@@ -54,6 +56,7 @@ namespace Inventory.Service
             product.Price = productActualizado.Price;
             product.Quantity = productActualizado.Quantity;
             product.UpdatedAt = DateTime.UtcNow;
+            product.Imagen = productActualizado.Imagen;
 
             await _context.SaveChangesAsync();
             return true;
