@@ -15,6 +15,8 @@ builder.Services.AddDbContext<TodoContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<RolService>();
+builder.Services.AddScoped<UserService>();
 
 
 builder.Services.AddControllers();
